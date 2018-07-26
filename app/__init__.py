@@ -1,3 +1,10 @@
+"""
+    sample use
+    >>> from microblog import app
+    >>> app.config['SECRET_KEY']
+    'you-will-never-guess'
+"""
+
 from flask import Flask
 from config import Config
 from flask_sqlalchemy import SQLAlchemy
@@ -10,5 +17,8 @@ db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 login = LoginManager(app)
 login.login_view = 'login'
+
+http_proxy = app.config['HTTP_PROXY']
+https_proxy = app.config['HTTPS_PROXY']
 
 from app import routes, models

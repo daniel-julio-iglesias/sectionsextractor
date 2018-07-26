@@ -1,8 +1,9 @@
 # Views
 from flask import render_template, flash, redirect, url_for
 from app import app
-from app.forms import LoginForm, DocForm
-from app.docSectionsExtractor import SectionsExtractor
+from app.forms import LoginForm, DocForm, HTMLForm
+from app.docSectionsExtractor import DocSectionsExtractor
+from app.htmlSectionsExtractor import HTMLSectionsExtractor
 from flask_login import current_user, login_user
 from app.models import User
 from flask_login import logout_user
@@ -62,9 +63,9 @@ def register():
     return render_template('register.html', title='Register', form=form)
 
 
-@app.route('/sectionsextract', methods=['GET', 'POST'])
+@app.route('/docsectionsextract', methods=['GET', 'POST'])
 @login_required
-def sectionsextract():
+def docsectionsextract():
     form = DocForm()
     if form.validate_on_submit():
 
@@ -73,12 +74,35 @@ def sectionsextract():
         # doc = form.document.data
         doc = '01.txt'
         training_dir = training_dir + os.sep
-        dse = SectionsExtractor(training_dir, doc)
+        dse = DocSectionsExtractor(training_dir, doc)
         content = dse.extract()
 
         flash('Document Section Extracted for  document {}, content {}'.format(
              form.doc.data, content))
         # return redirect(url_for('index'))
 
-        return render_template('sectionsextract.html', title='Document Sections Extractor', form=form)
-    return render_template('sectionsextract.html', title='Document Sections Extractor', form=form)
+        return render_template('docsectionsextract.html', title='Document Sections Extractor', form=form)
+    return render_template('docsectionsextract.html', title='Document Sections Extractor', form=form)
+
+
+@app.route('/htmlsectionsextract', methods=['GET', 'POST'])
+@login_required
+def htmlsectionsextract():
+    form = HTMLForm()
+    if form.validate_on_submit():
+
+        # training_dir = os.path.join(basedir, 'app', 'static', 'app', 'app-kb', 'app-kb-train')
+        training_dir = os.path.join(basedir, 'app', 'static', 'app', 'app-kb', 'app-kb-train', '00010Preface')
+        # doc = form.document.data
+        doc = '01.txt'
+        training_dir = training_dir + os.sep
+        hse = HTMLSectionsExtractor(training_dir, doc)
+        print(hse.extract())
+        content = hse.extract()
+
+        flash('HTML Section Extracted for  HTML "{}", content: "{}"'.format(
+             form.htmlUrl.data, content))
+        # return redirect(url_for('index'))
+
+        return render_template('htmlsectionsextract.html', title='HTML Sections Extractor', form=form)
+    return render_template('htmlsectionsextract.html', title='HTML Sections Extractor', form=form)

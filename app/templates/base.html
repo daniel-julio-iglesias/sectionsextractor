@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     {% if title %}
-    <title>{{ title }} - qnarecom</title>
+    <title>{{ title }} - sectionsextractor</title>
     {% else %}
-    <title>qnarecom</title>
+    <title>sectionsextractor</title>
     {% endif %}
 </head>
 <body>
@@ -17,7 +17,8 @@
         {% else %}
         <a href="{{ url_for('logout') }}">Logout</a>
         {% endif %}
-		<a href="{{ url_for('sectionsextract') }}">Document Sections Extractor</a>
+		<a href="{{ url_for('docsectionsextract') }}">Document Sections Extractor</a>
+        <a href="{{ url_for('htmlsectionsextract') }}">HTML Sections Extractor</a>
     </div>
     <hr>
     {% with messages = get_flashed_messages() %}

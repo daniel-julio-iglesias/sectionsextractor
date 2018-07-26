@@ -1,5 +1,9 @@
 # sectionsextractor
 
+
+TODO: UNDER CONSTRUCTION!!!
+TODO: If behind proxy, set your proxy inside config.py
+
 ==================================================
 
 A kind of REAME.first file
@@ -12,6 +16,7 @@ Sections Extractor application
 wrapped into a Web Framework.
 Used for Recommendation Engine
 Knowledge Base.
+
 Materials were used from http://inventwithpython.com/
 
 
@@ -29,6 +34,8 @@ MS
 (venv) $ flask run
 
 ..register your user...
+..test introducing file name "01.txt" ...for Document Extractor
+...test introducing url "https://en.wikibooks.org/wiki/GNU_Health/Families" ... for HTML Extractor
 
 The below initial project notes are from my exercises based on
 The Flask Mega-Tutorial
@@ -138,6 +145,62 @@ inventwithpython.com">my website</a>.</p>'
 True
 >>> spanElem.attrs
 {'id': 'author'}
+
+===================================================
+
+GNU+Health%2FFamilies
+GNUHealthFamilies.html
+https://en.wikibooks.org/wiki/GNU_Health/Families
+
+
+
+exampleSoup.select('p')
+exampleSoup.select('h1')
+exampleSoup.select('h2')
+
+>>> import os, requests, bs4
+
+"""
+    sample use
+    >>> from microblog import app
+    >>> app.config['SECRET_KEY']
+    'you-will-never-guess'
+"""
+
+
+
+>>> proxies = {
+    'http': 'http://user:pass@proxyAddress:proxyPort',
+    'https': 'http://user:pass@proxyAddress:proxyPort0',
+}
+
+>>> res = requests.get('https://en.wikibooks.org/wiki/GNU_Health/Families', proxies=proxies)
+
+>>> res.status_code == requests.codes.ok
+
+
+>>> gnuHealthSoup = bs4.BeautifulSoup(res.text)
+>>> type(gnuHealthSoup)
+<class 'bs4.BeautifulSoup'>
+>>> isinstance(gnuHealthSoup, bs4.BeautifulSoup)
+True
+
+>>> pElems = gnuHealthSoup.select('p')
+>>> str(pElems[0])
+>>> pElems[0].getText()
+
+>>> h1Elems = gnuHealthSoup.select('h1')
+>>> str(h1Elems[0])
+>>> h1Elems[0].getText()
+
+
+>>> h2Elems = gnuHealthSoup.select('h2')
+>>> str(h2Elems[0])
+>>> h2Elems[0].getText()
+
+
+
+
 
 ===================================================
 

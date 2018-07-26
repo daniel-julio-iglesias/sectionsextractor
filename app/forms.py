@@ -33,3 +33,9 @@ class RegistrationForm(FlaskForm):
 class DocForm(FlaskForm):
     doc = StringField('Document', validators=[DataRequired()])
     submit = SubmitField('Submit')
+
+
+class HTMLForm(FlaskForm):
+    htmlUrl = StringField('URL', validators=[DataRequired()])
+    submit = SubmitField('Submit')
+

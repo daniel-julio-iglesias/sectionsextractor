@@ -1,13 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Document Sections Extractor</h1>
+    <h1>HTML Sections Extractor</h1>
     <form action="" method="post" novalidate>
         {{ form.hidden_tag() }}
         <p>
-            {{ form.doc.label }}<br>
-            {{ form.doc() }}<br>
-            {% for error in form.doc.errors %}
+            <p>Test with "https://en.wikibooks.org/wiki/GNU_Health/Families" value</p>
+            {{ form.htmlUrl.label }}<br>
+            {{ form.htmlUrl() }}<br>
+            {% for error in form.htmlUrl.errors %}
             <span style="color: red;">[{{ error }}]</span>
             {% endfor %}
         </p>

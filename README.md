@@ -2,6 +2,7 @@
 
 
 TODO: UNDER CONSTRUCTION!!!
+TODO: If behind proxy, set your proxy inside config.py
 
 ==================================================
 
@@ -32,7 +33,8 @@ MS
 (venv) $ flask run
 
 ..register your user...
-..test introducing file name "01.txt" ...
+..test introducing file name "01.txt" ...for Document Extractor
+...test introducing url "https://en.wikibooks.org/wiki/GNU_Health/Families" ... for HTML Extractor
 
 The below initial project notes are from my exercises based on
 The Flask Mega-Tutorial

@@ -4,7 +4,7 @@ import math
 from config import basedir
 
 
-class SectionsExtractor:
+class DocSectionsExtractor:
     def __init__(self, trainingdir, inputdoc):
         filename = trainingdir + inputdoc
         # self.f = open(filename)
@@ -22,5 +22,5 @@ if __name__ == '__main__':
     training_dir = os.path.join(basedir, 'app', 'static', 'app', 'app-kb', 'app-kb-train', '00010Preface')
     training_dir = training_dir + os.sep
     doc = '01.txt'
-    dse = SectionsExtractor(training_dir, doc)
+    dse = DocSectionsExtractor(training_dir, doc)
     print(dse.extract())
