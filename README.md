@@ -16,6 +16,8 @@ wrapped into a Web Framework.
 Used for Recommendation Engine
 Knowledge Base.
 
+Materials were used from http://inventwithpython.com/
+
 The application is web based using Flask.
 
 You can run the application

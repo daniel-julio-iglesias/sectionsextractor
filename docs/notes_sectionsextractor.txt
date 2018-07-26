@@ -12,6 +12,8 @@ Sections Extractor application
 wrapped into a Web Framework.
 Used for Recommendation Engine
 Knowledge Base.
+Materials were used from http://inventwithpython.com/
+
 
 The application is web based using Flask.
 
@@ -55,8 +57,90 @@ Install these packages after app sources download
 (venv) $ pip install flask-sqlalchemy
 (venv) $ pip install flask-migrate
 (venv) $ pip install flask-login
+(venv) $ pip install requests
 
 ===================================================
+
+>>> import requests
+
+>>> proxies = {
+    'http': 'http://user:pass@proxyAddress:proxyPort',
+    'https': 'http://user:pass@proxyAddress:proxyPort0',
+}
+
+>>> requests.get('http://example.org', proxies=proxies)
+
+>>> res = requests.get('http://www.gutenberg.org/cache/epub/1112/pg1112.txt', proxies=proxies)
+>>> type(res)
+>>> res.status_code == requests.codes.ok
+(int) 200
+
+>>> len(res.text)
+>>> print(res.text[:250])
+
+>>> import requests, bs4
+>>> res = requests.get('http://nostarch.com')
+>>  res = requests.get('http://nostarch.com', proxies=proxies)
+>>> res.raise_for_status()
+>>> noStarchSoup = bs4.BeautifulSoup(res.text)
+>>> type(noStarchSoup)
+
+>>> import bs4, os
+>>> basedir = os.getcwd()
+>>> source_dir = os.path.join(basedir, 'app', 'static', 'app', 'app-kb', 'app-kb-source', '001')
+>>> source_dir = source_dir + os.sep
+>>> docFile = 'example.html'
+>>> filename = source_dir + docFile
+>>> ### exampleFile = open('example.html')
+>>> exampleFile = open(filename)
+>>> exampleSoup = bs4.BeautifulSoup(exampleFile.read())
+>>> elems = exampleSoup.select('#author')
+>>> type(elems)
+<class 'list'>
+>>> len(elems)
+1
+>>> type(elems[0])
+<class 'bs4.element.Tag'>
+>>> elems[0].getText()
+'Al Sweigart'
+>>> str(elems[0])
+'<span id="author">Al Sweigart</span>'
+>>> elems[0].attrs
+{'id': 'author'}
+
+
+>>> pElems = exampleSoup.select('p')
+>>> str(pElems[0])
+'<p>Download my <strong>Python</strong> book from <a href="http://
+inventwithpython.com">my website</a>.</p>'
+>>> pElems[0].getText()
+'Download my Python book from my website.'
+>>> str(pElems[1])
+'<p class="slogan">Learn Python the easy way!</p>'
+>>> pElems[1].getText()
+'Learn Python the easy way!'
+>>> str(pElems[2])
+'<p>By <span id="author">Al Sweigart</span></p>'
+>>> pElems[2].getText()
+'By Al Sweigart
+
+
+
+>>> import bs4
+>>> ## soup = bs4.BeautifulSoup(open('example.html'))
+>>> ### spanElem = soup.select('span')[0]
+>>> spanElem = exampleSoup.select('span')[0]
+>>> str(spanElem)
+'<span id="author">Al Sweigart</span>'
+>>> spanElem.get('id')
+'author'
+>>> spanElem.get('some_nonexistent_addr') == None
+True
+>>> spanElem.attrs
+{'id': 'author'}
+
+===================================================
+
 
 Apply the next db steps after downloading your app sources
 
