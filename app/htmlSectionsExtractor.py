@@ -35,8 +35,8 @@ class HTMLSectionsExtractor:
 
         print('http_proxy: ', http_proxy)
 
-        # self.res = requests.get('https://en.wikibooks.org/wiki/GNU_Health/Families')
-        self.res = requests.get('https://en.wikibooks.org/wiki/GNU_Health/Families', proxies=self.proxies)
+        self.res = requests.get('https://en.wikibooks.org/wiki/GNU_Health/Families')
+        # self.res = requests.get('https://en.wikibooks.org/wiki/GNU_Health/Families', proxies=self.proxies)
 
         if self.res.status_code == requests.codes.ok:
             # self.gnuHealthSoup = bs4.BeautifulSoup(self.res.text)
