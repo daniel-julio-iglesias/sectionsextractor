@@ -62,6 +62,7 @@ Install these packages after app sources download
 (venv) $ pip install flask-sqlalchemy
 (venv) $ pip install flask-migrate
 (venv) $ pip install flask-login
+(venv) $ pip install bs4
 
 ===================================================
 
