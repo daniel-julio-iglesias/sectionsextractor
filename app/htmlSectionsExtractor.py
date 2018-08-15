@@ -63,6 +63,8 @@ class HTMLSectionsExtractor:
         str(pElems[0])
         content = content + ' ' + pElems[0].getText()
 
+        # content = self.gnuHealthSoup.get_text()
+
         # print(content)
         return content
 
