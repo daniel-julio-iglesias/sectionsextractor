@@ -40,7 +40,8 @@ class HTMLSectionsExtractor:
 
         if self.res.status_code == requests.codes.ok:
             # self.gnuHealthSoup = bs4.BeautifulSoup(self.res.text)
-            self.gnuHealthSoup = bs4.BeautifulSoup(self.res.text, "html.parser")
+            # self.gnuHealthSoup = bs4.BeautifulSoup(self.res.text, "html.parser")
+            self.gnuHealthSoup = bs4.BeautifulSoup(self.res.text, "lxml")
 
     def extract(self):
         # content = self.f.readline()

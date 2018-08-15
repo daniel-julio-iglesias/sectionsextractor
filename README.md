@@ -63,6 +63,8 @@ Install these packages after app sources download
 (venv) $ pip install flask-migrate
 (venv) $ pip install flask-login
 (venv) $ pip install bs4
+(venv) $ pip install beautifulsoap4
+(venv) $ pip install lxml
 
 ===================================================
 
