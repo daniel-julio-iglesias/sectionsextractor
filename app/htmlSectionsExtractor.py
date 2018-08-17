@@ -1,4 +1,6 @@
-#!python3
+#! /usr/bin/env python3
+# -*- coding: cp1252 -*-
+
 """
 GNU+Health%2FFamilies
 GNUHealthFamilies.html
@@ -8,6 +10,7 @@ exampleSoup.select('p')
 exampleSoup.select('h1')
 exampleSoup.select('h2')
 """
+
 import os
 import codecs
 import math
