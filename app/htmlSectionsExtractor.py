@@ -70,10 +70,14 @@ class HTMLSectionsExtractor:
         return content
 
 
-if __name__ == '__main__':
+def main():
     # training_dir = os.path.join(basedir, 'app', 'static', 'app', 'app-kb', 'app-kb-train')
     training_dir = os.path.join(basedir, 'app', 'static', 'app', 'app-kb', 'app-kb-train', '00010Preface')
     training_dir = training_dir + os.sep
     doc = '01.txt'
     hse = HTMLSectionsExtractor(training_dir, doc)
     print(hse.extract())
+
+
+if __name__ == '__main__':
+    main()
