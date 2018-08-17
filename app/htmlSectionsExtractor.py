@@ -1,3 +1,4 @@
+#!python3
 """
 GNU+Health%2FFamilies
 GNUHealthFamilies.html
@@ -35,8 +36,9 @@ class HTMLSectionsExtractor:
 
         print('http_proxy: ', http_proxy)
 
-        self.res = requests.get('https://en.wikibooks.org/wiki/GNU_Health/Families')
-        # self.res = requests.get('https://en.wikibooks.org/wiki/GNU_Health/Families', proxies=self.proxies)
+        # TODO: If behind proxy, set your proxy
+        # self.res = requests.get('https://en.wikibooks.org/wiki/GNU_Health/Families')
+        self.res = requests.get('https://en.wikibooks.org/wiki/GNU_Health/Families', proxies=self.proxies)
 
         if self.res.status_code == requests.codes.ok:
             # self.gnuHealthSoup = bs4.BeautifulSoup(self.res.text)

@@ -44,5 +44,8 @@ class Config(object):
     # HTTP_PROXY = os.environ.get('HTTP_PROXY') or 'http://user:pass@proxyAddress:proxyPort'
     # HTTPS_PROXY = os.environ.get('HTTPS_PROXY') or 'http://user:pass@proxyAddress:proxyPort0'
     # TODO: If behind proxy, set your proxy
-    HTTP_PROXY = os.environ.get('HTTP_PROXY') or 'http://proxycom:8080'
-    HTTPS_PROXY = os.environ.get('HTTPS_PROXY') or 'http://proxycom:8080'
+    # HTTP_PROXY = os.environ.get('HTTP_PROXY') or 'http://proxycom:8080'
+    # HTTPS_PROXY = os.environ.get('HTTPS_PROXY') or 'http://proxycom:8080'
+    HTTP_PROXY = os.environ.get('HTTP_PROXY') or 'http://www-proxy:8080'
+    HTTPS_PROXY = os.environ.get('HTTPS_PROXY') or 'http://www-proxy:8080'
+
