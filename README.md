@@ -1,6 +1,7 @@
 # sectionsextractor
 
-
+This is a prototype.
+Do not use in production.
 TODO: UNDER CONSTRUCTION!!!
 TODO: If behind proxy, set your proxy inside config.py
 
